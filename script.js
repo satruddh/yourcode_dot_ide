@@ -113,7 +113,7 @@ function fetchOutput()
     xhr.open('GET',`https://codequotient.com/api/codeResult/${codeID}`,true)
     xhr.onprogress = function(){
         console.log("Fetching...")
-
+        output.innerHTML = "Compiling....."
     }
     xhr.send()
     xhr.addEventListener('load',function(){
@@ -122,6 +122,6 @@ function fetchOutput()
         response.data=JSON.parse(response.data)
         console.log(response)
         console.log(response.data.output)
-        output.innerHTML = response.data.errors ? response.data.errors : response.data.output
+        output.innerText = response.data.errors ? response.data.errors : response.data.output
     })
 }
