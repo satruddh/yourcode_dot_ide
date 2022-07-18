@@ -80,6 +80,7 @@ function executeCode()
     xhr.setRequestHeader('content-type','application/json')
     xhr.onprogress = function(){
         console.log("Sending...")
+        output.innerHTML = "Compiling....."
     }
     let response;
     xhr.addEventListener('load',function(){
@@ -113,7 +114,6 @@ function fetchOutput()
     xhr.open('GET',`https://codequotient.com/api/codeResult/${codeID}`,true)
     xhr.onprogress = function(){
         console.log("Fetching...")
-        output.innerHTML = "Compiling....."
     }
     xhr.send()
     xhr.addEventListener('load',function(){
